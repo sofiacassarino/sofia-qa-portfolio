@@ -1,4 +1,4 @@
-👋 Hi, I'm Sofia. I'm a QA Engineer, currently expanding my skills in test automation using PlayWright with TypeScript.
+👋 Hi, I'm Sofia. I'm a QA Engineer, currently expanding my skills in test automation using Playwright with TypeScript.
 
 demo testing accounts:
 1. https://practicesoftwaretesting.com/
