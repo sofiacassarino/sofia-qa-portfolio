@@ -20,11 +20,3 @@ test('login with wrong password shows error', async ({ page }) => {
   await page.click('[data-test="login-button"]');
   await expect(page.locator('[data-test="error"]')).toBeVisible();
 });
-
-// test('login with valid credentials', async ({ page }) => {
-//   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-//   await page.fill('[data-v-957b4417="username"]', 'Admin');
-//   await page.fill('[data-v-957b4417="password"]', 'admin13');
-//   await page.click('[data-v-10d463b7="login-button"]');
-//   await expect(page).toHaveURL(/dashboard/);
-// });
