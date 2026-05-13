@@ -6,6 +6,4 @@ demo testing accounts:
 personal github: 
 1. https://github.com/sofiacassarino
 
-👋 Hi, I'm Sofia
-I'm a QA Analyst, currently expanding my skills in test automation.
-I have 4+ years of experience testing web and mobile applications in the iGaming and logistics sectors.
+👋 Hi, I'm Sofia. I'm a QA Engineer, currently expanding my skills in test automation using Playwright with TypeScript.
