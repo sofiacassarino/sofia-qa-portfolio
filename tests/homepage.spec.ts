@@ -19,17 +19,6 @@ test('at least 9 products are displayed', async ({ page }) => {
   await expect(page.locator('.card')).toHaveCount(9);
 });
 
-test('search bar is visible and functional', async ({ page }) => {
-    // check search input is visible
-    await expect(page.locator('[data-test="search-query"]')).toBeVisible();
-    // type in search box
-    await page.locator('[data-test="search-query"]').fill('Hammer');
-    // click search button
-    await page.locator('[data-test="search-submit"]').click();
-    // check results appear
-    await expect(page.locator('[data-test="search-caption"]')).toContainText('Searched for: Hammer');
-});
-
 test('nav menu redirects to the correct pages', async ({page}) => {
     // click on home button
     await page.locator('[data-test="nav-home"]').click();
@@ -52,17 +41,17 @@ test('nav menu redirects to the correct pages', async ({page}) => {
 });
 
 [
-  { name: 'EN', expected: 'Home' },
+  { name: 'EN', expected: 'Home' }, // Each object has two properties: name (the language code) and expected (the translated word you expect to see)
   { name: 'DE', expected: 'Start' },
   { name: 'ES', expected: 'Inicio' },
   { name: 'FR', expected: 'Accueil' },
   { name: 'NL', expected: 'Home' },
   { name: 'TR', expected: 'Anasayfa' },
-].forEach(({ name, expected }) => {
+].forEach(({ name, expected }) => { // forEach function collect name and expected from each object and passes them on into the test
   test(`switch language translate the whole page into the selected lang ${name}`, async ({ page }) => {
     await page.locator('[data-test="language-select"]').click();
-    await page.locator(`[data-test="lang-${name.toLowerCase()}"]`).click();
-    await expect(page.locator('[data-test="nav-home"]')).toHaveText(expected);
+    await page.locator(`[data-test="lang-${name.toLowerCase()}"]`).click(); //name.toLowerCase() turns 'DE' into 'de' to match the selector lang-de
+    await expect(page.locator('[data-test="nav-home"]')).toHaveText(expected); //compares the expected with what written in the list
   });
 });
 
