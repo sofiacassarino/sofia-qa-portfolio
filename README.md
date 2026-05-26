@@ -38,14 +38,16 @@ git checkout -b feature/login-tests
 2. Push branch to GitHub:
 git push -u origin feature/login-tests
 ______________________________________________________________________________
-# ACTIONS (no expect)
-page.goto()      Navigate to URL
-page.locator()   Find element
-page.click()     Click element
-page.fill()      Type into input
-page.nth()       Pick element by index
+# ACTIONS (no expect) // https://playwright.dev/docs/input
+page.goto()             Navigate to URL
+page.locator()          Find element
+page.click()            Click element
+page.fill()             Type into input
+page.nth()              Pick element by index
+page.selectOption()     Select an option from a dropdown
+page.allTextContents()  Grabs text from ALL matching elements at once as an array
 
-# ASSERTIONS (use expect)
+# ASSERTIONS (use expect) // https://playwright.dev/docs/test-assertions
 toHaveTitle()    Page tab title
 toHaveURL()      Address bar URL
 toBeVisible()    Element is visible
