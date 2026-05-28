@@ -58,14 +58,14 @@
     }
   });
 
-  test('filter by price range works', async ({ page }) => {
-  });
-
   test('search bar is visible and functional', async ({ page }) => {
     await expect(page.locator('[data-test="search-query"]')).toBeVisible();
     await page.locator('[data-test="search-query"]').fill('Hammer');
     await page.locator('[data-test="search-submit"]').click();
     await expect(page.locator('[data-test="search-caption"]')).toContainText('Searched for: Hammer');
+  });
+  
+  test('filter by price range works', async ({ page }) => {
   });
 
   test('filter by category works', async ({ page }) => {
