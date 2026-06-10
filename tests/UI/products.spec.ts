@@ -69,6 +69,22 @@
   });
 
   test('filter by category works', async ({ page }) => {
+    // filter by Power Tools
+    await page.getByLabel('Power Tools').check();
+    await expect(page.getByLabel('Power Tools')).toBeChecked();
+
+    // subcategories also get checked
+    await expect(page.getByLabel('Grinder')).toBeChecked();
+    await expect(page.getByLabel('Sander')).toBeChecked();
+    await expect(page.getByLabel('Saw')).toBeChecked();
+    await expect(page.getByLabel('Drill')).toBeChecked();
+    
+    // verify only Power Tools products are shown
+    const names = await page.locator('[data-test="product-name"]').allTextContents();
+    for (const name of names) {
+      console.log(name); // print each product name so we can see what appears
+      }
+      expect(names.length).toBeGreaterThan(0);
   });
 
   test('filter by brand works', async ({ page }) => {

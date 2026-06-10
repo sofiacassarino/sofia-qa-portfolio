@@ -1,0 +1,33 @@
+Phase 1:
+✅ Login page loads correctly
+✅ Login with valid credentials
+✅ Login with wrong password shows error message
+⭕ Login with locked out user shows correct error
+⭕ Add one product to cart — cart shows count 1
+⭕ Add multiple products — verify cart count updates
+⭕ Remove product from cart — count decreases
+⭕ Complete full checkout flow — order confirmed
+⭕ Sort products by price low to high
+⭕ Sort products by name A to Z
+
+Phase 2:
+Page Object Model Structure 
+
+Phase 3: 
+reqres.in — a free fake REST API built for testing practice
+Tests to write:
+⭕ GET /users — status 200, response contains data array
+⭕ GET /users/1 — verify user has id, email, first_name fields
+⭕ GET /users/999 — verify 404 not found response
+⭕ POST /users — create user, verify 201 status and response body
+⭕ PUT /users/1 — update user, verify response contains updated fields
+⭕ DELETE /users/1 — verify 204 status
+
+Phase 4:
+Cross-browser config — already set up in your playwright.config.ts, tests run on Chrome, Firefox, and WebKit automatically. 
+Screenshot on failure — add this to your config:
+typescriptuse: {
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure',
+}
+Now when a test fails, Playwright automatically saves a screenshot and video. This shows you think about debugging, not just passing tests.
