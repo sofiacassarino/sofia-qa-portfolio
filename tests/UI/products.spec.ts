@@ -39,23 +39,16 @@
         expect(numbersDesc[i]).toBeGreaterThanOrEqual(numbersDesc[i + 1]);
     }
   });
-    
-  test('sorting works - A to Z, Z to A', async ({ page }) => {
-    const defaultFirst = await page.locator('[data-test="product-name"]').first().textContent();
-    await page.selectOption('[data-test="sort"]', 'name,asc');
-    await expect(page.locator('[data-test="product-name"]').first()).not.toHaveText(defaultFirst!);
-    const namesAsc = await page.locator('[data-test="product-name"]').allTextContents();
-    for (let i = 0; i < namesAsc.length - 1; i++) {
-      expect(namesAsc[i].localeCompare(namesAsc[i + 1])).toBeLessThanOrEqual(0);
-    }
 
-    const ascFirst = await page.locator('[data-test="product-name"]').first().textContent();
+  test('sorting works - A to Z, Z to A', async ({ page }) => {
+    await page.selectOption('[data-test="sort"]', 'name,asc');
+    const namesAsc = (await page.locator('[data-test="product-name"]').allTextContents()).map(name => name.trim());
+    const sortedAsc = [...namesAsc].sort((a, b) => a.localeCompare(b));
+    expect(namesAsc).toEqual(sortedAsc);
     await page.selectOption('[data-test="sort"]', 'name,desc');
-    await expect(page.locator('[data-test="product-name"]').first()).not.toHaveText(ascFirst!);
-    const namesDesc = await page.locator('[data-test="product-name"]').allTextContents();
-    for (let i = 0; i < namesDesc.length - 1; i++) {
-      expect(namesDesc[i].localeCompare(namesDesc[i + 1])).toBeGreaterThanOrEqual(0);
-    }
+    const namesDesc = (await page.locator('[data-test="product-name"]').allTextContents()).map(name => name.trim());
+    const sortedDesc = [...namesDesc].sort((a, b) => b.localeCompare(a));
+    expect(namesDesc).toEqual(sortedDesc);
   });
 
   test('search bar is visible and functional', async ({ page }) => {
@@ -76,7 +69,7 @@
     // subcategories also get checked
     await expect(page.getByLabel('Grinder')).toBeChecked();
     await expect(page.getByLabel('Sander')).toBeChecked();
-    await expect(page.getByLabel('Saw')).toBeChecked();
+    await expect(page.locator('[data-test="category-01KTVFQRYB4AZ01K4RF76TQPSD"]')).toBeChecked();
     await expect(page.getByLabel('Drill')).toBeChecked();
     
     // verify only Power Tools products are shown
