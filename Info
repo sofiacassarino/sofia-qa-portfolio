@@ -11,12 +11,12 @@ Playwright codegen:
 1. npx playwright codegen https://practicesoftwaretesting.com
 
 The --headed means you'll see the browser doing the actions in real time
-2. npx playwright test tests/login.spec.ts --headed
+2. npx playwright test tests/UI/products.spec.ts --headed
 
 To run a specific test only, use --grep with the test name
-3. npx playwright test tests/login.spec.ts --headed --grep "home page loads correctly"
+3. npx playwright test tests/UI/products.spec.ts --headed --grep "filter by category works"
 
-4. npx playwright test tests/login.spec.ts --ui
+4. npx playwright test tests/UI/login.spec.ts --ui
 ______________________________________________________________________________
 # GitHub/GitLab git commands:
 1. Check what files you changed: 
