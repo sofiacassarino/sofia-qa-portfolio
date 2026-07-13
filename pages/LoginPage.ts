@@ -1,12 +1,13 @@
 import { Page } from '@playwright/test';
-
-export class LoginPage {
-    constructor(private page: Page) {}
+import { BasePage } from './BasePage';
+export class LoginPage extends BasePage {
+    constructor(page: Page) {
+        super(page);
+    }
 
     async goto() {
         await this.page.goto('https://practicesoftwaretesting.com/auth/login');
     }
-
     async login(email: string, password: string) {
     await this.page.fill('[data-test="email"]', email);
     await this.page.fill('[data-test="password"]', password);
