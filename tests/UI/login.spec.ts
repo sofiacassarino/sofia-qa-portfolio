@@ -4,7 +4,7 @@ import { LoginPage } from '../../pages/LoginPage';
 test('login with valid credentials', async ({page}) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();
-    await loginPage.login('sofia.cassarino.it@gmail.com', 'Miciomiao2000!');
+    await loginPage.login(process.env.TEST_USER_EMAIL!, process.env.TEST_USER_PASSWORD!);    
     await expect(page).toHaveURL(/account/);
 });
 
