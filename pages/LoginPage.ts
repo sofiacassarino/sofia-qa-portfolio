@@ -10,19 +10,19 @@ export class LoginPage extends BasePage {
     }
 
     get emailInput(): Locator {
-        return this.page.locator('data-test="email"');
+        return this.page.locator('[data-test="email"]');
     }
 
     get passwordInput(): Locator {
-        return this.page.locator('data-test="password"');
+        return this.page.locator('[data-test="password"]');
     }
 
     get loginSubmitButton(): Locator {
-        return this.page.locator('data-test="login-submit"');
+        return this.page.locator('[data-test="login-submit"]');
     }
 
     get loginError(): Locator {
-        return this.page.locator('data-test="login-error"');
+        return this.page.locator('[data-test="login-error"]');
     }
     async login(email: string, password: string) {
     await this.emailInput.fill(email);

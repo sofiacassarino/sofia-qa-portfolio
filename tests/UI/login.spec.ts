@@ -5,10 +5,10 @@ test.beforeEach(async ({ loginPage }) => {
 });
 
 test('login with valid credentials', async ({ page, loginPage }) => {
-  await loginPage.login(
-    process.env.TEST_USER_EMAIL!,
-    process.env.TEST_USER_PASSWORD!
-  );
+await loginPage.login(
+  process.env.TEST_USER_EMAIL!,
+  process.env.TEST_USER_PASSWORD!
+);
   await expect(page).toHaveURL(/account/);
 });
 
